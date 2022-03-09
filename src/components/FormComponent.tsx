@@ -22,13 +22,16 @@ export const FormComponent: React.FC = () => {
     setFetching(false);
 
     if (res.ok) {
-      console.log("hi");
+      window.alert("質問を送信しました！");
+      setVal("");
     }
   };
 
   return (
     <>
       <input
+        id="question"
+        value={val}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
       />
       <button onClick={() => submit()}>送信！</button>
