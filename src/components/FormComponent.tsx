@@ -1,4 +1,27 @@
 import { useState } from "react";
+import styled from "styled-components"
+
+
+const StyledSubmitButton = styled.button`
+  background-color: #2fa4ff;
+  box-shadow: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  border: none;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+
+  &:active {
+    background-color: #0e185f;
+  }
+`
+
+const StyledQuestionInput = styled.input`
+  padding: 4px 12px;
+  border: #ddd 2px solid;
+  border-radius: 4px;
+  margin-bottom: 12px;
+`
 
 export const FormComponent: React.FC = () => {
   const [val, setVal] = useState<string>("");
@@ -29,12 +52,12 @@ export const FormComponent: React.FC = () => {
 
   return (
     <>
-      <input
+      <StyledQuestionInput
         id="question"
         value={val}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
       />
-      <button onClick={() => submit()}>送信！</button>
+      <StyledSubmitButton onClick={() => submit()}>送信！</StyledSubmitButton>
     </>
   );
 };
